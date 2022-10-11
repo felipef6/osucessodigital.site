@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+			<title>Designer de Unhas Expert &#8211; Negocios Lucrativos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='max-image-preview:large' />
+<title>Designer de Unhas Expert &#8211; Negocios Lucrativos</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Negocios Lucrativos &raquo; Feed" href="https://negocioslucrativos.website/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Negocios Lucrativos &raquo; Feed de comentários" href="https://negocioslucrativos.website/comments/feed/" />
+<script type="rocketlazyloadscript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/negocioslucrativos.website\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<style id='wp-block-library-inline-css'>
+:root{--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,161;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip:auto!important;-webkit-clip-path:none;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color),html :where([style*=border-width]){border-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}
+</style>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--foreground: #000000;--wp--preset--color--background: #ffffff;--wp--preset--color--primary: #1a4548;--wp--preset--color--secondary: #ffe2c7;--wp--preset--color--tertiary: #F6F6F6;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--vertical-secondary-to-tertiary: linear-gradient(to bottom,var(--wp--preset--color--secondary) 0%,var(--wp--preset--color--tertiary) 100%);--wp--preset--gradient--vertical-secondary-to-background: linear-gradient(to bottom,var(--wp--preset--color--secondary) 0%,var(--wp--preset--color--background) 100%);--wp--preset--gradient--vertical-tertiary-to-background: linear-gradient(to bottom,var(--wp--preset--color--tertiary) 0%,var(--wp--preset--color--background) 100%);--wp--preset--gradient--diagonal-primary-to-foreground: linear-gradient(to bottom right,var(--wp--preset--color--primary) 0%,var(--wp--preset--color--foreground) 100%);--wp--preset--gradient--diagonal-secondary-to-background: linear-gradient(to bottom right,var(--wp--preset--color--secondary) 50%,var(--wp--preset--color--background) 50%);--wp--preset--gradient--diagonal-background-to-secondary: linear-gradient(to bottom right,var(--wp--preset--color--background) 50%,var(--wp--preset--color--secondary) 50%);--wp--preset--gradient--diagonal-tertiary-to-background: linear-gradient(to bottom right,var(--wp--preset--color--tertiary) 50%,var(--wp--preset--color--background) 50%);--wp--preset--gradient--diagonal-background-to-tertiary: linear-gradient(to bottom right,var(--wp--preset--color--background) 50%,var(--wp--preset--color--tertiary) 50%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--duotone--foreground-and-background: url('#wp-duotone-foreground-and-background');--wp--preset--duotone--foreground-and-secondary: url('#wp-duotone-foreground-and-secondary');--wp--preset--duotone--foreground-and-tertiary: url('#wp-duotone-foreground-and-tertiary');--wp--preset--duotone--primary-and-background: url('#wp-duotone-primary-and-background');--wp--preset--duotone--primary-and-secondary: url('#wp-duotone-primary-and-secondary');--wp--preset--duotone--primary-and-tertiary: url('#wp-duotone-primary-and-tertiary');--wp--preset--font-size--small: 1rem;--wp--preset--font-size--medium: 1.125rem;--wp--preset--font-size--large: 1.75rem;--wp--preset--font-size--x-large: clamp(1.75rem, 3vw, 2.25rem);--wp--preset--font-family--system-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;--wp--preset--font-family--source-serif-pro: "Source Serif Pro", serif;--wp--custom--spacing--small: max(1.25rem, 5vw);--wp--custom--spacing--medium: clamp(2rem, 8vw, calc(4 * var(--wp--style--block-gap)));--wp--custom--spacing--large: clamp(4rem, 10vw, 8rem);--wp--custom--spacing--outer: var(--wp--custom--spacing--small, 1.25rem);--wp--custom--typography--font-size--huge: clamp(2.25rem, 4vw, 2.75rem);--wp--custom--typography--font-size--gigantic: clamp(2.75rem, 6vw, 3.25rem);--wp--custom--typography--font-size--colossal: clamp(3.25rem, 8vw, 6.25rem);--wp--custom--typography--line-height--tiny: 1.15;--wp--custom--typography--line-height--small: 1.2;--wp--custom--typography--line-height--medium: 1.4;--wp--custom--typography--line-height--normal: 1.6;}body { margin: 0; }body{background-color: var(--wp--preset--color--background);color: var(--wp--preset--color--foreground);font-family: var(--wp--preset--font-family--system-font);font-size: var(--wp--preset--font-size--medium);line-height: var(--wp--custom--typography--line-height--normal);--wp--style--block-gap: 1.5rem;}.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }.wp-site-blocks > * { margin-block-start: 0; margin-block-end: 0; }.wp-site-blocks > * + * { margin-block-start: var( --wp--style--block-gap ); }h1{font-family: var(--wp--preset--font-family--source-serif-pro);font-size: var(--wp--custom--typography--font-size--colossal);font-weight: 300;line-height: var(--wp--custom--typography--line-height--tiny);}h2{font-family: var(--wp--preset--font-family--source-serif-pro);font-size: var(--wp--custom--typography--font-size--gigantic);font-weight: 300;line-height: var(--wp--custom--typography--line-height--small);}h3{font-family: var(--wp--preset--font-family--source-serif-pro);font-size: var(--wp--custom--typography--font-size--huge);font-weight: 300;line-height: var(--wp--custom--typography--line-height--tiny);}h4{font-family: var(--wp--preset--font-family--source-serif-pro);font-size: var(--wp--preset--font-size--x-large);font-weight: 300;line-height: var(--wp--custom--typography--line-height--tiny);}h5{font-family: var(--wp--preset--font-family--system-font);font-size: var(--wp--preset--font-size--medium);font-weight: 700;line-height: var(--wp--custom--typography--line-height--normal);text-transform: uppercase;}h6{font-family: var(--wp--preset--font-family--system-font);font-size: var(--wp--preset--font-size--medium);font-weight: 400;line-height: var(--wp--custom--typography--line-height--normal);text-transform: uppercase;}a{color: var(--wp--preset--color--foreground);}.wp-block-button__link{background-color: var(--wp--preset--color--primary);border-radius: 0;color: var(--wp--preset--color--background);font-size: var(--wp--preset--font-size--medium);}.wp-block-post-title{font-family: var(--wp--preset--font-family--source-serif-pro);font-size: var(--wp--custom--typography--font-size--gigantic);font-weight: 300;line-height: var(--wp--custom--typography--line-height--tiny);}.wp-block-post-comments{padding-top: var(--wp--custom--spacing--small);}.wp-block-pullquote{border-width: 1px 0;}.wp-block-query-title{font-family: var(--wp--preset--font-family--source-serif-pro);font-size: var(--wp--custom--typography--font-size--gigantic);font-weight: 300;line-height: var(--wp--custom--typography--line-height--small);}.wp-block-quote{border-width: 1px;}.wp-block-site-title{font-family: var(--wp--preset--font-family--system-font);font-size: var(--wp--preset--font-size--medium);font-style: italic;font-weight: normal;line-height: var(--wp--custom--typography--line-height--normal);}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-foreground-color{color: var(--wp--preset--color--foreground) !important;}.has-background-color{color: var(--wp--preset--color--background) !important;}.has-primary-color{color: var(--wp--preset--color--primary) !important;}.has-secondary-color{color: var(--wp--preset--color--secondary) !important;}.has-tertiary-color{color: var(--wp--preset--color--tertiary) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-foreground-background-color{background-color: var(--wp--preset--color--foreground) !important;}.has-background-background-color{background-color: var(--wp--preset--color--background) !important;}.has-primary-background-color{background-color: var(--wp--preset--color--primary) !important;}.has-secondary-background-color{background-color: var(--wp--preset--color--secondary) !important;}.has-tertiary-background-color{background-color: var(--wp--preset--color--tertiary) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-foreground-border-color{border-color: var(--wp--preset--color--foreground) !important;}.has-background-border-color{border-color: var(--wp--preset--color--background) !important;}.has-primary-border-color{border-color: var(--wp--preset--color--primary) !important;}.has-secondary-border-color{border-color: var(--wp--preset--color--secondary) !important;}.has-tertiary-border-color{border-color: var(--wp--preset--color--tertiary) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-vertical-secondary-to-tertiary-gradient-background{background: var(--wp--preset--gradient--vertical-secondary-to-tertiary) !important;}.has-vertical-secondary-to-background-gradient-background{background: var(--wp--preset--gradient--vertical-secondary-to-background) !important;}.has-vertical-tertiary-to-background-gradient-background{background: var(--wp--preset--gradient--vertical-tertiary-to-background) !important;}.has-diagonal-primary-to-foreground-gradient-background{background: var(--wp--preset--gradient--diagonal-primary-to-foreground) !important;}.has-diagonal-secondary-to-background-gradient-background{background: var(--wp--preset--gradient--diagonal-secondary-to-background) !important;}.has-diagonal-background-to-secondary-gradient-background{background: var(--wp--preset--gradient--diagonal-background-to-secondary) !important;}.has-diagonal-tertiary-to-background-gradient-background{background: var(--wp--preset--gradient--diagonal-tertiary-to-background) !important;}.has-diagonal-background-to-tertiary-gradient-background{background: var(--wp--preset--gradient--diagonal-background-to-tertiary) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-system-font-font-family{font-family: var(--wp--preset--font-family--system-font) !important;}.has-source-serif-pro-font-family{font-family: var(--wp--preset--font-family--source-serif-pro) !important;}
+</style>
+<style id='wp-webfonts-inline-css'>
+@font-face{font-family:"Source Serif Pro";font-style:normal;font-weight:200 900;font-display:fallback;src:local("Source Serif Pro"), url('/wp-content/themes/twentytwentytwo/assets/fonts/source-serif-pro/SourceSerif4Variable-Roman.ttf.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:"Source Serif Pro";font-style:italic;font-weight:200 900;font-display:fallback;src:local("Source Serif Pro"), url('/wp-content/themes/twentytwentytwo/assets/fonts/source-serif-pro/SourceSerif4Variable-Italic.ttf.woff2') format('woff2');font-stretch:normal;}
+</style>
+<link data-minify="1" rel='stylesheet' id='twentytwentytwo-style-css'  href='https://negocioslucrativos.website/wp-content/cache/min/1/wp-content/themes/twentytwentytwo/style.css?ver=1659658803' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-css'  href='https://negocioslucrativos.website/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1659658807' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css'  href='https://negocioslucrativos.website/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.6.8' media='all' />
+<link rel='stylesheet' id='elementor-post-6-css'  href='https://negocioslucrativos.website/wp-content/uploads/elementor/css/post-6.css?ver=1659658177' media='all' />
+<link rel='stylesheet' id='elementor-pro-css'  href='https://negocioslucrativos.website/wp-content/plugins/elementor-pro/assets/css/frontend-lite.min.css?ver=3.7.3' media='all' />
+<link rel='stylesheet' id='elementor-global-css'  href='https://negocioslucrativos.website/wp-content/uploads/elementor/css/global.css?ver=1659658306' media='all' />
+<link rel='stylesheet' id='elementor-post-46-css'  href='https://negocioslucrativos.website/wp-content/uploads/elementor/css/post-46.css?ver=1665085122' media='all' />
+<style id='rocket-lazyload-inline-css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://negocioslucrativos.website/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}.wp-embed-responsive .wp-has-aspect-ratio .rll-youtube-player{position:absolute;padding-bottom:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}
+</style>
+<link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.0.2' media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-0-css'  href='https://negocioslucrativos.website/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-solid-css'  href='https://negocioslucrativos.website/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=1659658807' media='all' />
+<link rel="https://api.w.org/" href="https://negocioslucrativos.website/wp-json/" /><link rel="alternate" type="application/json" href="https://negocioslucrativos.website/wp-json/wp/v2/pages/46" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://negocioslucrativos.website/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://negocioslucrativos.website/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 6.0.2" />
+<link rel="canonical" href="https://negocioslucrativos.website/designer-de-unhas-expert/" />
+<link rel='shortlink' href='https://negocioslucrativos.website/?p=46' />
+<link rel="alternate" type="application/json+oembed" href="https://negocioslucrativos.website/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnegocioslucrativos.website%2Fdesigner-de-unhas-expert%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://negocioslucrativos.website/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnegocioslucrativos.website%2Fdesigner-de-unhas-expert%2F&#038;format=xml" />
+<noscript><style>.lazyload[data-src]{display:none !important;}</style></noscript><style>.lazyload{background-image:none !important;}.lazyload:before{background-image:none !important;}</style><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /></head>
+<body class="page-template page-template-elementor_canvas page page-id-46 wp-embed-responsive elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-46">
+<script data-cfasync="false" data-no-defer="1">var ewww_webp_supported=false;</script>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-foreground-and-background"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-foreground-and-secondary"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.88627450980392" /><feFuncB type="table" tableValues="0 0.78039215686275" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-foreground-and-tertiary"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.96470588235294" /><feFuncG type="table" tableValues="0 0.96470588235294" /><feFuncB type="table" tableValues="0 0.96470588235294" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-primary-and-background"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.10196078431373 1" /><feFuncG type="table" tableValues="0.27058823529412 1" /><feFuncB type="table" tableValues="0.28235294117647 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-primary-and-secondary"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.10196078431373 1" /><feFuncG type="table" tableValues="0.27058823529412 0.88627450980392" /><feFuncB type="table" tableValues="0.28235294117647 0.78039215686275" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-primary-and-tertiary"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.10196078431373 0.96470588235294" /><feFuncG type="table" tableValues="0.27058823529412 0.96470588235294" /><feFuncB type="table" tableValues="0.28235294117647 0.96470588235294" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg>		<div data-elementor-type="wp-page" data-elementor-id="46" class="elementor elementor-46">
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-85ca97c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="85ca97c" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-698cde1" data-id="698cde1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e07a255 elementor-widget elementor-widget-html" data-id="e07a255" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<!-- Meta Pixel Code -->
+<script type="rocketlazyloadscript">
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1816361682066777'); <!-- CP12 -->
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1816361682066777&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->		</div>
+				</div>
+				<div class="elementor-element elementor-element-a7d9cc4 elementor-widget elementor-widget-heading" data-id="a7d9cc4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.8 - 27-07-2022 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">CURSO COMPLETO DE <span style="color:#F60085">DESIGN E ALONGAMENTO DE UNHAS</span> PROFISSIONAL</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6ae2db5 elementor-widget elementor-widget-heading" data-id="6ae2db5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">TORNE-SE UMA ESPECIALISTA EM NAILS DESIGN E <span style="color:#F60085">LUCRE TODOS OS DIAS.
+</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d64425d elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="d64425d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.8 - 27-07-2022 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img width="350" height="350" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20350%20350'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/TUTORA.png 350w, https://negocioslucrativos.website/wp-content/uploads/2022/09/TUTORA-300x300.png 300w, https://negocioslucrativos.website/wp-content/uploads/2022/09/TUTORA-150x150.png 150w" data-lazy-sizes="(max-width: 350px) 100vw, 350px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/TUTORA.png" /><noscript><img width="350" height="350" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/TUTORA.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/TUTORA.png 350w, https://negocioslucrativos.website/wp-content/uploads/2022/09/TUTORA-300x300.png 300w, https://negocioslucrativos.website/wp-content/uploads/2022/09/TUTORA-150x150.png 150w" sizes="(max-width: 350px) 100vw, 350px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-54636b9 elementor-widget elementor-widget-text-editor" data-id="54636b9" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.8 - 27-07-2022 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#818a91;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#818a91;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p>O Curso que vai te ensinar absolutamente tudo para você se tornar uma <strong>Expert em Design e Alongamento de Unhas</strong> do Zero ao Avançado.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-2bfce9c elementor-widget elementor-widget-button" data-id="2bfce9c" data-element_type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;bounceIn&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://pay.kiwify.com.br/HAX1iGF" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">SIM, QUERO COMEÇAR AGORA<p class="sub-preco">SOMENTE HOJE POR APENAS: R$19,90</p></span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-e3b372b elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="e3b372b" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://negocioslucrativos.website/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css">		<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Curso Completo</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Acesso Vitalicio</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Tenha seu Negocio</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Suporte Exclusivo</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Profissão em Alta</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Garantia de 7 dias</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-1ec95e6" data-id="1ec95e6" data-element_type="column">
+			<div class="elementor-widget-wrap">
+									</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1c13768 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1c13768" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ce6ad3f" data-id="ce6ad3f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e396b72 elementor-widget elementor-widget-heading" data-id="e396b72" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Você vai se tornar uma Especialista e poderá lucrar muito</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-03de19c elementor-widget elementor-widget-text-editor" data-id="03de19c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Você vai <strong>dominar as melhores e mais modernas</strong> Técnicas de Design e Alongamento de Unhas do Mercado</p>						</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-f88dd86 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f88dd86" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-0795194" data-id="0795194" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-91d2251 elementor-widget elementor-widget-image" data-id="91d2251" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/14-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/14-1-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/14-1.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/14-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/14-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/14-1-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-fa64c7e elementor-widget elementor-widget-heading" data-id="fa64c7e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Apresentação dos Materiais</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-b4bfbcd" data-id="b4bfbcd" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-fff9b31 elementor-widget elementor-widget-image" data-id="fff9b31" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/13-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/13-1-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/13-1.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/13-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/13-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/13-1-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-edf0a08 elementor-widget elementor-widget-heading" data-id="edf0a08" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Alongamento Fibra de Vidro</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-cdaefa3" data-id="cdaefa3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-9f05f49 elementor-widget elementor-widget-image" data-id="9f05f49" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/7-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/7-1-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/7-1.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/7-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/7-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/7-1-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-6164fa6 elementor-widget elementor-widget-heading" data-id="6164fa6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Alongamento em Gel na Tips</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-f1a733a" data-id="f1a733a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-a25d5c5 elementor-widget elementor-widget-image" data-id="a25d5c5" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/15-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/15-1-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/15-1.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/15-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/15-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/15-1-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-0095cca elementor-widget elementor-widget-heading" data-id="0095cca" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Alongamento no molde F1 - Polygel</h3>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-3005a3f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3005a3f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-ade5710" data-id="ade5710" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-aa3de66 elementor-widget elementor-widget-image" data-id="aa3de66" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/16.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/16-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/16.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/16.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/16.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/16-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-d6688fa elementor-widget elementor-widget-heading" data-id="d6688fa" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Manutenção do Alongamento</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-b0cb939" data-id="b0cb939" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-a1c6538 elementor-widget elementor-widget-image" data-id="a1c6538" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/21-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/21-1-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/21-1.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/21-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/21-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/21-1-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-18f5541 elementor-widget elementor-widget-heading" data-id="18f5541" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Curvatura em C e Slim</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-1deb914" data-id="1deb914" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-c359978 elementor-widget elementor-widget-image" data-id="c359978" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/18.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/18-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/18.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/18.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/18.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/18-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-e1426a7 elementor-widget elementor-widget-heading" data-id="e1426a7" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Ballerine</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-f97f43b" data-id="f97f43b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-bab25b4 elementor-widget elementor-widget-image" data-id="bab25b4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/19.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/19-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/19.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/19.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/19.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/19-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-f8e7ed7 elementor-widget elementor-widget-heading" data-id="f8e7ed7" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Square</h3>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-956d869 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="956d869" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-49b3c52" data-id="49b3c52" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-f9959e4 elementor-widget elementor-widget-image" data-id="f9959e4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-accad43 elementor-widget elementor-widget-heading" data-id="accad43" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Babyboomer</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-ea7ee37" data-id="ea7ee37" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-f9d0157 elementor-widget elementor-widget-image" data-id="f9d0157" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/22-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/22-1-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/22-1.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/22-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/22-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/22-1-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-e8b885f elementor-widget elementor-widget-heading" data-id="e8b885f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Esmaltação em Gel
+</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-3ea6325" data-id="3ea6325" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-aac8e0f elementor-widget elementor-widget-image" data-id="aac8e0f" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/23-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/23-1-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/23-1.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/23-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/23-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/23-1-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-bb1a3c5 elementor-widget elementor-widget-heading" data-id="bb1a3c5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Francesinha Bilateral</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-a387536" data-id="a387536" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-f22b3dd elementor-widget elementor-widget-image" data-id="f22b3dd" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px-1-150x150.png 150w" data-lazy-sizes="(max-width: 180px) 100vw, 180px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px-1.png" /><noscript><img width="180" height="180" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px-1.png 180w, https://negocioslucrativos.website/wp-content/uploads/2022/09/lista-180-x-180-px-1-150x150.png 150w" sizes="(max-width: 180px) 100vw, 180px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-0a19aeb elementor-widget elementor-widget-heading" data-id="0a19aeb" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Stiletto</h3>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<div class="elementor-element elementor-element-3d86635 elementor-widget elementor-widget-heading" data-id="3d86635" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">E MUITO MAIS!</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-c683e74 elementor-align-center elementor-widget elementor-widget-button" data-id="c683e74" data-element_type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;bounceIn&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://pay.kiwify.com.br/HAX1iGF" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">SIM, QUERO COMEÇAR AGORA<p class="sub-preco">SOMENTE HOJE POR APENAS: R$19,90</p></span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1e8ffdc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1e8ffdc" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b8a51db" data-id="b8a51db" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-3908e89 elementor-widget elementor-widget-spacer" data-id="3908e89" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.8 - 27-07-2022 */
+.e-container.e-container--row .elementor-spacer-inner{width:var(--spacer-size)}.e-container.e-container--column .elementor-spacer-inner,.elementor-column .elementor-spacer-inner{height:var(--spacer-size)}</style>		<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-e814d7c elementor-widget elementor-widget-heading" data-id="e814d7c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">VEJA O QUE VOCÊ VAI APRENDER NO CURSO:
+</h3>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-b20858a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b20858a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c98d945" data-id="c98d945" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-9c615fa elementor-widget elementor-widget-heading" data-id="9c615fa" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> MODULO 1</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-ae7cc62 elementor-widget elementor-widget-heading" data-id="ae7cc62" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">MATERIAIS E HIGIENIZAÇÃO PROFISSIONAL</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-8751b46 elementor-widget elementor-widget-text-editor" data-id="8751b46" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Neste módulo você vai aprender sobre materiais fundamentais para para executar os serviços de Nails Designer. E também receber orientações importantes sobre higienização.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ac34eda" data-id="ac34eda" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-cd4f604 elementor-widget elementor-widget-heading" data-id="cd4f604" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> MODULO 2</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2d4fca9 elementor-widget elementor-widget-heading" data-id="2d4fca9" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">MANICURE EXPERT</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-fe87be3 elementor-widget elementor-widget-text-editor" data-id="fe87be3" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Neste módulo você vai aprender a prática de higienização, cuticulagem e finalização de mãos. É uma etapa muito importante para uma manicure profissional.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-cd19e01" data-id="cd19e01" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-273ae96 elementor-widget elementor-widget-heading" data-id="273ae96" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> MODULO 3</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-751e993 elementor-widget elementor-widget-heading" data-id="751e993" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">PEDICURE EXPERT</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-521a7e0 elementor-widget elementor-widget-text-editor" data-id="521a7e0" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Neste módulo você vai aprender a prática de higienização, cuticulagem e finalização de pés. Com esmaltação importante para a manicure tradicional.</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-df2f223 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="df2f223" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-34cb61a" data-id="34cb61a" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-b443e4b elementor-widget elementor-widget-heading" data-id="b443e4b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> MODULO 4</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b194106 elementor-widget elementor-widget-heading" data-id="b194106" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"> DOMINANDO A ESMALTAÇÃO</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b0caf56 elementor-widget elementor-widget-text-editor" data-id="b0caf56" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Aqui você vai aprender sobre os diversos tipos de esmaltação e também mostraremos a aplicação prática de forma detalhada e clara.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c9174f9" data-id="c9174f9" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e3b04f3 elementor-widget elementor-widget-heading" data-id="e3b04f3" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> MODULO 5</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-5f298ce elementor-widget elementor-widget-heading" data-id="5f298ce" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">MANICURE E PEDICURE MASCULINA</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-336add1 elementor-widget elementor-widget-text-editor" data-id="336add1" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Neste módulo falaremos sobre os cuidados necessários para manicure masculina e mostraremos a aplicação prática detalhando todo passo a passo.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-bca293a" data-id="bca293a" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-dfc4b2a elementor-widget elementor-widget-heading" data-id="dfc4b2a" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> MODULO 6</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7928e83 elementor-widget elementor-widget-heading" data-id="7928e83" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">TÉCNICA AMERICANA DE DESIGN COM ADESIVOS</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-f0dfa8a elementor-widget elementor-widget-text-editor" data-id="f0dfa8a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>No módulo de adesivos você aprenderá onde comprar e também como aplicar películas adesivas nas unhas de suas clientes.</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-93cbd1e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="93cbd1e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-efa9c7b" data-id="efa9c7b" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-08f26ae elementor-widget elementor-widget-heading" data-id="08f26ae" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> MODULO 7</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-0b4eea0 elementor-widget elementor-widget-heading" data-id="0b4eea0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">DESIGNER DE FRANCESINHAS</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-11e6128 elementor-widget elementor-widget-text-editor" data-id="11e6128" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>No módulo de Designer de francesinhas você vai aprender os formatos: Bilateral, reta e reversa. Esses formatos permitem uma infinidade de combinações de cores e estilos.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-a8e0676" data-id="a8e0676" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7db92f8 elementor-widget elementor-widget-heading" data-id="7db92f8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> MODULO 8</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-fbc6045 elementor-widget elementor-widget-heading" data-id="fbc6045" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">MÉTODO COMPLETO DE APLICAÇÃO POLYGEL</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6e84fdd elementor-widget elementor-widget-text-editor" data-id="6e84fdd" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>No módulo de polygel vamos te mostrar a aplicação prática com um passo a passo super fácil de compreender.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9693120" data-id="9693120" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-39eb3b8 elementor-widget elementor-widget-heading" data-id="39eb3b8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> MODULO 9</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6a999d8 elementor-widget elementor-widget-heading" data-id="6a999d8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">ALONGAMENTO DE UNHAS COMPLETO</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-c6499d2 elementor-widget elementor-widget-text-editor" data-id="c6499d2" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>No módulo fibra de vidro mostraremos de forma prática como fazer a aplicação, manutenção, remoção e também como moldar formatos lindos e desejados como: Amendoado, stiletto, square e bailarina</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<div class="elementor-element elementor-element-baf2339 elementor-align-center elementor-widget elementor-widget-button" data-id="baf2339" data-element_type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;bounceIn&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://pay.kiwify.com.br/HAX1iGF" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">SIM, QUERO COMEÇAR AGORA<p class="sub-preco">SOMENTE HOJE POR APENAS: R$19,90</p></span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-c2b9771 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c2b9771" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a011573" data-id="a011573" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4d9ad01 elementor-widget elementor-widget-heading" data-id="4d9ad01" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">CERTIFICADOS RECONHECIDOS EM TODO BRASIL</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-ffabaf1 elementor-widget elementor-widget-text-editor" data-id="ffabaf1" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Você vai receber <strong>Diversos Certificados de Especialização</strong> que irão comprovar sua Qualificação como Profissional.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-67022f8 elementor-arrows-position-outside elementor-pagination-position-outside elementor-widget elementor-widget-image-carousel" data-id="67022f8" data-element_type="widget" data-settings="{&quot;slides_to_show_mobile&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;both&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:20,&quot;sizes&quot;:[]}}" data-widget_type="image-carousel.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.8 - 27-07-2022 */
+.elementor-widget-image-carousel .swiper-container{position:static}.elementor-widget-image-carousel .swiper-container .swiper-slide figure{line-height:inherit}.elementor-widget-image-carousel .swiper-slide{text-align:center}.elementor-image-carousel-wrapper:not(.swiper-container-initialized) .swiper-slide{max-width:calc(100% / var(--e-image-carousel-slides-to-show, 3))}</style>		<div class="elementor-image-carousel-wrapper swiper-container" dir="ltr">
+			<div class="elementor-image-carousel swiper-wrapper">
+								<div class="swiper-slide"><figure class="swiper-slide-inner"><img width="1000" height="707" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20707'%3E%3C/svg%3E" alt="3-1" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/3-1.jpg" /><noscript><img width="1000" height="707" class="swiper-slide-image" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/3-1.jpg" alt="3-1" /></noscript></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="1000" height="707" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20707'%3E%3C/svg%3E" alt="2-1" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/2-1.jpg" /><noscript><img width="1000" height="707" class="swiper-slide-image" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/2-1.jpg" alt="2-1" /></noscript></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="1000" height="707" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20707'%3E%3C/svg%3E" alt="1-1" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/1-1.jpg" /><noscript><img width="1000" height="707" class="swiper-slide-image" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/1-1.jpg" alt="1-1" /></noscript></figure></div>			</div>
+												<div class="swiper-pagination"></div>
+													<div class="elementor-swiper-button elementor-swiper-button-prev">
+						<i aria-hidden="true" class="eicon-chevron-left"></i>						<span class="elementor-screen-only">Anterior</span>
+					</div>
+					<div class="elementor-swiper-button elementor-swiper-button-next">
+						<i aria-hidden="true" class="eicon-chevron-right"></i>						<span class="elementor-screen-only">Seguinte</span>
+					</div>
+									</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-c55f88b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c55f88b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9e0fa89" data-id="9e0fa89" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-9fb3dc3 elementor-widget elementor-widget-heading" data-id="9fb3dc3" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">VEJA O QUE NOSSAS ALUNAS ESTÃO DIZENDO</h3>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-f77cf9a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f77cf9a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3e01c95" data-id="3e01c95" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4efab45 elementor-widget elementor-widget-image" data-id="4efab45" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="417" height="374" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20417%20374'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-1.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-1-300x269.png 300w" data-lazy-sizes="(max-width: 417px) 100vw, 417px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-1.png" /><noscript><img width="417" height="374" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-1.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-1-300x269.png 300w" sizes="(max-width: 417px) 100vw, 417px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-9327ed7 elementor-widget elementor-widget-image" data-id="9327ed7" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="417" height="649" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20417%20649'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento5.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento5-193x300.png 193w" data-lazy-sizes="(max-width: 417px) 100vw, 417px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento5.png" /><noscript><img width="417" height="649" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento5.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento5.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento5-193x300.png 193w" sizes="(max-width: 417px) 100vw, 417px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-7e1fe7c" data-id="7e1fe7c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4ad6aa3 elementor-widget elementor-widget-image" data-id="4ad6aa3" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="417" height="610" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20417%20610'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-2.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-2-205x300.png 205w" data-lazy-sizes="(max-width: 417px) 100vw, 417px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-2.png" /><noscript><img width="417" height="610" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-2.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-2.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento-2-205x300.png 205w" sizes="(max-width: 417px) 100vw, 417px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-a1e53d7 elementor-widget elementor-widget-image" data-id="a1e53d7" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="417" height="535" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20417%20535'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento6.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento6-234x300.png 234w" data-lazy-sizes="(max-width: 417px) 100vw, 417px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento6.png" /><noscript><img width="417" height="535" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento6.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento6.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento6-234x300.png 234w" sizes="(max-width: 417px) 100vw, 417px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5feb612" data-id="5feb612" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5461427 elementor-widget elementor-widget-image" data-id="5461427" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="417" height="363" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20417%20363'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento3.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento3-300x261.png 300w" data-lazy-sizes="(max-width: 417px) 100vw, 417px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento3.png" /><noscript><img width="417" height="363" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento3.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento3.png 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento3-300x261.png 300w" sizes="(max-width: 417px) 100vw, 417px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-3543cb2 elementor-widget elementor-widget-image" data-id="3543cb2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="417" height="793" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20417%20793'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento4.jpg 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento4-158x300.jpg 158w" data-lazy-sizes="(max-width: 417px) 100vw, 417px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento4.jpg" /><noscript><img width="417" height="793" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento4.jpg" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento4.jpg 417w, https://negocioslucrativos.website/wp-content/uploads/2022/09/depoimento4-158x300.jpg 158w" sizes="(max-width: 417px) 100vw, 417px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<div class="elementor-element elementor-element-2e4da47 elementor-align-center elementor-widget elementor-widget-button" data-id="2e4da47" data-element_type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;bounceIn&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://pay.kiwify.com.br/HAX1iGF" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">SIM, QUERO COMEÇAR AGORA<p class="sub-preco">SOMENTE HOJE POR APENAS: R$19,90</p></span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-73bc7ed elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="73bc7ed" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b31ab2c" data-id="b31ab2c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2f121dd elementor-widget elementor-widget-heading" data-id="2f121dd" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">E VOCÊ AINDA VAI GANHAR BÔNUS EXCLUSIVOS
+
+</h3>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-cda0b3d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="cda0b3d" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-4f13971" data-id="4f13971" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-c7d0da0 elementor-widget elementor-widget-image" data-id="c7d0da0" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="100" height="100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/icons8-manicure-100.png" /><noscript><img width="100" height="100" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/icons8-manicure-100.png" class="attachment-full size-full" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-af32ce5 elementor-widget elementor-widget-heading" data-id="af32ce5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> 1# BÔNUS</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7587412 elementor-widget elementor-widget-heading" data-id="7587412" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">MÉTODO IMÃ DE CLIENTES</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e9d7046 elementor-widget elementor-widget-text-editor" data-id="e9d7046" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>No Método Imã de Clientes você vai aprender como atrair e fidelizar clientes 24 horas por dia de forma simples e fácil utilizando apenas o seu celular.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3af7e09" data-id="3af7e09" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e3da7f8 elementor-widget elementor-widget-image" data-id="e3da7f8" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="100" height="100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/icons8-manicure-100.png" /><noscript><img width="100" height="100" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/icons8-manicure-100.png" class="attachment-full size-full" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-ac36ee9 elementor-widget elementor-widget-heading" data-id="ac36ee9" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> 2# BÔNUS</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-a0e1ac6 elementor-widget elementor-widget-heading" data-id="a0e1ac6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"> OS SEGREDOS DA UNHA PERFEITA</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b14b4f7 elementor-widget elementor-widget-text-editor" data-id="b14b4f7" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Vamos revelar para você todos os segredos e técnicas para fazer Unhas Perfeitas que encantam seus clientes no 1° serviço.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-e10e28a" data-id="e10e28a" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-84737da elementor-widget elementor-widget-image" data-id="84737da" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="100" height="100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/icons8-manicure-100.png" /><noscript><img width="100" height="100" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/icons8-manicure-100.png" class="attachment-full size-full" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-c3ae61f elementor-widget elementor-widget-heading" data-id="c3ae61f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default"><span style="background-color:#F60085"> 3# BÔNUS</span></h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-ec20759 elementor-widget elementor-widget-heading" data-id="ec20759" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">LUCRANDO COM MANICURE DELIVERY</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6685a09 elementor-widget elementor-widget-text-editor" data-id="6685a09" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>No módulo de conclusões faremos considerações importantes além de dicas de como você pode fazer seus serviços na sua própria casa, no carro e no escritório</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-0f017fc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0f017fc" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-c041a72" data-id="c041a72" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<section class="elementor-section elementor-inner-section elementor-element elementor-element-2774c36 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2774c36" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-97b951c" data-id="97b951c" data-element_type="column">
+			<div class="elementor-widget-wrap">
+									</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-dd6e8f2" data-id="dd6e8f2" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-a8e9b19 elementor-widget elementor-widget-menu-anchor" data-id="a8e9b19" data-element_type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.8 - 27-07-2022 */
+body.elementor-page .elementor-widget-menu-anchor{margin-bottom:0}</style>		<div id="oferta" class="elementor-menu-anchor"></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-8107447 elementor-widget elementor-widget-heading" data-id="8107447" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">ÚLTIMAS VAGAS COM 95% DE DESCONTO
+</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-86d6bcb elementor-mobile-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="86d6bcb" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Curso Completo 100% Atualizado</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Método de Alongamento de Unhas Completo</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Método de Design Profissional</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Método de Esmaltação, Manicure e Pedicure</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Apostilas de Estudos Completa</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">1# - Bônus: Método Imã de Clientes</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">2# - Bônus: Os Segredos da Unha Perfeita</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">3# - Bônus: Lucrando com Manicure Delivery</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Acesso Vitalício</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">Atualização Semanal</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+										<span class="elementor-icon-list-text">+de 3 Certificados Reconhecidos no Brasil</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-678c10a elementor-widget elementor-widget-heading" data-id="678c10a" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">DE <s>R$ 647,00</s> POR APENAS</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-1114c03 elementor-widget elementor-widget-heading" data-id="1114c03" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">R$27,90</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-592c4f3 elementor-widget elementor-widget-heading" data-id="592c4f3" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Ou em 4x R$5,35 no Cartão</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-939b278 elementor-align-center elementor-widget elementor-widget-button" data-id="939b278" data-element_type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;bounceIn&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://pay.kiwify.com.br/HAX1iGF" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">SIM, QUERO COMEÇAR AGORA</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-487adda elementor-widget elementor-widget-image" data-id="487adda" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="1120" height="78" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201120%2078'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes.png 1120w, https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes-300x21.png 300w, https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes-1024x71.png 1024w, https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes-768x53.png 768w" data-lazy-sizes="(max-width: 1120px) 100vw, 1120px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes.png" /><noscript><img width="1120" height="78" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes.png 1120w, https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes-300x21.png 300w, https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes-1024x71.png 1024w, https://negocioslucrativos.website/wp-content/uploads/2022/09/cartoes-768x53.png 768w" sizes="(max-width: 1120px) 100vw, 1120px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-f5a79e8" data-id="f5a79e8" data-element_type="column">
+			<div class="elementor-widget-wrap">
+									</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-ac9d141 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ac9d141" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-60a9041" data-id="60a9041" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-d2df820 elementor-view-default elementor-widget elementor-widget-icon" data-id="d2df820" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<i aria-hidden="true" class="fas fa-shield-alt"></i>			</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-c8bdb99 elementor-widget elementor-widget-heading" data-id="c8bdb99" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Dados 100% Seguros.</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-e2e5b7b" data-id="e2e5b7b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-b740d8d elementor-view-default elementor-widget elementor-widget-icon" data-id="b740d8d" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<i aria-hidden="true" class="fas fa-check-square"></i>			</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-7585dc4 elementor-widget elementor-widget-heading" data-id="7585dc4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Pagamento automático, rápido e seguro.</h3>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-864575b" data-id="864575b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7ae4d86 elementor-view-default elementor-widget elementor-widget-icon" data-id="7ae4d86" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<i aria-hidden="true" class="fas fa-mail-bulk"></i>			</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-c249667 elementor-widget elementor-widget-heading" data-id="c249667" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Acesso enviado para seu email Imediatamente</h3>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-edec3c3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="edec3c3" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5e43a03" data-id="5e43a03" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4acd6c4 elementor-widget elementor-widget-image" data-id="4acd6c4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="450" height="392" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%20392'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/08/garantia-de-7-dias-1.png 450w, https://negocioslucrativos.website/wp-content/uploads/2022/08/garantia-de-7-dias-1-300x261.png 300w" data-lazy-sizes="(max-width: 450px) 100vw, 450px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/08/garantia-de-7-dias-1.png" /><noscript><img width="450" height="392" src="https://negocioslucrativos.website/wp-content/uploads/2022/08/garantia-de-7-dias-1.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/08/garantia-de-7-dias-1.png 450w, https://negocioslucrativos.website/wp-content/uploads/2022/08/garantia-de-7-dias-1-300x261.png 300w" sizes="(max-width: 450px) 100vw, 450px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-253b0d2" data-id="253b0d2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-57cdfcd elementor-widget elementor-widget-heading" data-id="57cdfcd" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">RISCO ZERO PARA VOCÊ
+</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-4eab633 elementor-widget elementor-widget-heading" data-id="4eab633" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">100% GARANTIDO</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2cd3db6 elementor-widget elementor-widget-heading" data-id="2cd3db6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">VOCÊ SATISFEITA COM O CURSO OU O SEU DINHEIRO DE VOLTA!
+</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e4e4dee elementor-widget elementor-widget-text-editor" data-id="e4e4dee" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Se por algum motivo você não gostar do treinamento poderá solicitar reembolso total do valor do curso a qualquer momento (dentro do prazo de 7 dias após a compra).</p><p>Fique tranquila! Se não gostar do conteúdo nós devolveremos cada centavo!<br />Acesso imediato e vitalício</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-82acaa1 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="82acaa1" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4ee3191" data-id="4ee3191" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<section class="elementor-section elementor-inner-section elementor-element elementor-element-2fee65d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2fee65d" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-188e433" data-id="188e433" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-80228e8 elementor-widget elementor-widget-heading" data-id="80228e8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Como Você Acessa o seu Curso?</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-c5ea17b elementor-widget elementor-widget-text-editor" data-id="c5ea17b" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Após realizar o seu pedido você irá receber um e-mail contendo todos os dados e informações para acessar a sua área restrita.</p><p>Ao fazer o seu login você já pode iniciar seus estudos do Curso Designer e Alongamento de Unhas Expert, assistir as aulas disponíveis agora mesmo e começar a se tornar uma profissional requisitada.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-13e9804" data-id="13e9804" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-973bd41 elementor-widget elementor-widget-image" data-id="973bd41" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="409" height="436" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20409%20436'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/acesso-nail-01.png 409w, https://negocioslucrativos.website/wp-content/uploads/2022/09/acesso-nail-01-281x300.png 281w" data-lazy-sizes="(max-width: 409px) 100vw, 409px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/acesso-nail-01.png" /><noscript><img width="409" height="436" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/acesso-nail-01.png" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/acesso-nail-01.png 409w, https://negocioslucrativos.website/wp-content/uploads/2022/09/acesso-nail-01-281x300.png 281w" sizes="(max-width: 409px) 100vw, 409px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<div class="elementor-element elementor-element-5aa77bd elementor-align-center elementor-widget elementor-widget-button" data-id="5aa77bd" data-element_type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;bounceIn&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://pay.kiwify.com.br/HAX1iGF" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">SIM, QUERO COMEÇAR AGORA</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2d6d1f0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2d6d1f0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-45fe632" data-id="45fe632" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-fc5b6c1 elementor-widget elementor-widget-image" data-id="fc5b6c1" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="1080" height="1080" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201080%201080'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2.jpg 1080w, https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2-300x300.jpg 300w, https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2-1024x1024.jpg 1024w, https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2-150x150.jpg 150w, https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2-768x768.jpg 768w" data-lazy-sizes="(max-width: 1080px) 100vw, 1080px" data-lazy-src="https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2.jpg" /><noscript><img width="1080" height="1080" src="https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2.jpg" class="attachment-full size-full" alt="" srcset="https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2.jpg 1080w, https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2-300x300.jpg 300w, https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2-1024x1024.jpg 1024w, https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2-150x150.jpg 150w, https://negocioslucrativos.website/wp-content/uploads/2022/09/Design-sem-nome-2-768x768.jpg 768w" sizes="(max-width: 1080px) 100vw, 1080px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-51f52ef" data-id="51f52ef" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2ab4e0a elementor-widget elementor-widget-heading" data-id="2ab4e0a" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">quem vai nessa jornada com você</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-62db6c3 elementor-widget elementor-widget-text-editor" data-id="62db6c3" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Olá Meu nome é Renata Fernades, sou Especialista em Designer e Alongamento de Unhas.</p><p>Trabalho a mais de 5 anos no mercado da beleza atendendo diversos tipos de clientes, inclusive modelos e artistas famosas. Nos últimos anos formei mais de 5000 alunas especialistas em Designer e Alongamento de Unhas pelo Brasil.</p><p>Meu objetivo é ajudar mulheres a criarem um negócio lucrativo e terem sua independência financeira através do Designer e Alongamento de Unhas.</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-0713858 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0713858" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-aefc807" data-id="aefc807" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-add2a5e elementor-widget elementor-widget-heading" data-id="add2a5e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">dúvidas frequentes</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-a2b4300 elementor-widget elementor-widget-toggle" data-id="a2b4300" data-element_type="widget" data-widget_type="toggle.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.8 - 27-07-2022 */
+.elementor-toggle{text-align:left}.elementor-toggle .elementor-tab-title{font-weight:700;line-height:1;margin:0;padding:15px;border-bottom:1px solid #d4d4d4;cursor:pointer;outline:none}.elementor-toggle .elementor-tab-title .elementor-toggle-icon{display:inline-block;width:1em}.elementor-toggle .elementor-tab-title .elementor-toggle-icon svg{-webkit-margin-start:-5px;margin-inline-start:-5px;width:1em;height:1em}.elementor-toggle .elementor-tab-title .elementor-toggle-icon.elementor-toggle-icon-right{float:right;text-align:right}.elementor-toggle .elementor-tab-title .elementor-toggle-icon.elementor-toggle-icon-left{float:left;text-align:left}.elementor-toggle .elementor-tab-title .elementor-toggle-icon .elementor-toggle-icon-closed{display:block}.elementor-toggle .elementor-tab-title .elementor-toggle-icon .elementor-toggle-icon-opened{display:none}.elementor-toggle .elementor-tab-title.elementor-active{border-bottom:none}.elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-icon-closed{display:none}.elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-icon-opened{display:block}.elementor-toggle .elementor-tab-content{padding:15px;border-bottom:1px solid #d4d4d4;display:none}@media (max-width:767px){.elementor-toggle .elementor-tab-title{padding:12px}.elementor-toggle .elementor-tab-content{padding:12px 10px}}</style>		<div class="elementor-toggle" role="tablist">
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-1701" class="elementor-tab-title" data-tab="1" role="tab" aria-controls="elementor-tab-content-1701" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-caret-right"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+													</span>
+												<a href="" class="elementor-toggle-title">Como funciona o curso ?</a>
+					</div>
+
+					<div id="elementor-tab-content-1701" class="elementor-tab-content elementor-clearfix" data-tab="1" role="tabpanel" aria-labelledby="elementor-tab-title-1701"><p>O Curso é totalmente online e seguro, onde você fará no conforto de sua casa através de video aulas explicativas.</p></div>
+				</div>
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-1702" class="elementor-tab-title" data-tab="2" role="tab" aria-controls="elementor-tab-content-1702" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-caret-right"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+													</span>
+												<a href="" class="elementor-toggle-title">Por que é tão barato?</a>
+					</div>
+
+					<div id="elementor-tab-content-1702" class="elementor-tab-content elementor-clearfix" data-tab="2" role="tabpanel" aria-labelledby="elementor-tab-title-1702"><p>Nosso maior objetivo é ajudar o máximo de pessoas a se qualificarem no mercado de trabalho para que consigam dar uma vida melhor para as pessoas ao seu redor nesses tempos dificeis. Por isso nosso treinamentos são os mais acessíveis do mercado.</p></div>
+				</div>
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-1703" class="elementor-tab-title" data-tab="3" role="tab" aria-controls="elementor-tab-content-1703" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-caret-right"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+													</span>
+												<a href="" class="elementor-toggle-title">Esse curso serve para iniciantes?</a>
+					</div>
+
+					<div id="elementor-tab-content-1703" class="elementor-tab-content elementor-clearfix" data-tab="3" role="tabpanel" aria-labelledby="elementor-tab-title-1703"><p>Sim, o curso é passo a passo desde o inicio e não é necessário ter experiencia anterior, nem mesmo ser manicure. Há casos de donas de casa, vendedoras e até advogadas que aprenderam e começaram a trabalhar como Nails Designer</p></div>
+				</div>
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-1704" class="elementor-tab-title" data-tab="4" role="tab" aria-controls="elementor-tab-content-1704" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-caret-right"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+													</span>
+												<a href="" class="elementor-toggle-title">Quais são as formas de pagamento?</a>
+					</div>
+
+					<div id="elementor-tab-content-1704" class="elementor-tab-content elementor-clearfix" data-tab="4" role="tabpanel" aria-labelledby="elementor-tab-title-1704"><p>Você poderá pagar com cartão de crédito e Pix.</p></div>
+				</div>
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-1705" class="elementor-tab-title" data-tab="5" role="tab" aria-controls="elementor-tab-content-1705" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-caret-right"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+													</span>
+												<a href="" class="elementor-toggle-title">Quando vou receber meu curso?</a>
+					</div>
+
+					<div id="elementor-tab-content-1705" class="elementor-tab-content elementor-clearfix" data-tab="5" role="tabpanel" aria-labelledby="elementor-tab-title-1705"><p>Se o pagamento for efetuado com Pix, ou cartão de crédito, você irá receber seu acesso imediatamente no e-mail que inseriu no ato do pagamento.</p><p>Caso efetue o pagamento por boleto bancário, o prazo de recebimento do curso será de até 3 dias úteis após o pagamento.</p></div>
+				</div>
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-1706" class="elementor-tab-title" data-tab="6" role="tab" aria-controls="elementor-tab-content-1706" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-caret-right"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+													</span>
+												<a href="" class="elementor-toggle-title">Preciso ter experiência</a>
+					</div>
+
+					<div id="elementor-tab-content-1706" class="elementor-tab-content elementor-clearfix" data-tab="6" role="tabpanel" aria-labelledby="elementor-tab-title-1706"><p><span style="font-weight: 400;">O Curso serve também para iniciantes pois possui uma didática rápida e descomplicada.</span></p></div>
+				</div>
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-1707" class="elementor-tab-title" data-tab="7" role="tab" aria-controls="elementor-tab-content-1707" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-caret-right"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+													</span>
+												<a href="" class="elementor-toggle-title">Como vou receber meu certificado?</a>
+					</div>
+
+					<div id="elementor-tab-content-1707" class="elementor-tab-content elementor-clearfix" data-tab="7" role="tabpanel" aria-labelledby="elementor-tab-title-1707"><p>O certificado é liberado automaticamente dentro do curso no formato pdf onde você poderá fazer a impressão.</p></div>
+				</div>
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-1708" class="elementor-tab-title" data-tab="8" role="tab" aria-controls="elementor-tab-content-1708" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-caret-right"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+													</span>
+												<a href="" class="elementor-toggle-title">O que eu preciso para fazer o curso?</a>
+					</div>
+
+					<div id="elementor-tab-content-1708" class="elementor-tab-content elementor-clearfix" data-tab="8" role="tabpanel" aria-labelledby="elementor-tab-title-1708"><p>Você precisa ter apenas um celular ou computador/tablet com internet para poder assistir as aulas.</p></div>
+				</div>
+								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-da2b8cf elementor-align-center elementor-widget elementor-widget-button" data-id="da2b8cf" data-element_type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;bounceIn&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://pay.kiwify.com.br/HAX1iGF" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">SIM, QUERO COMEÇAR AGORA</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-08d2566 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="08d2566" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-22cc93d" data-id="22cc93d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-45395c6 elementor-widget elementor-widget-text-editor" data-id="45395c6" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Termos de Uso</p><p>Políticas de privacidade</p><p>© Instituto Beleza Expert &#8211; Todos os Direitos Reservados.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-20195b2 elementor-widget elementor-widget-html" data-id="20195b2" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<script type="rocketlazyloadscript">
+    let prefix = ["https://pay.kiwify.com.br"];
+
+function getParams() {
+    let t = "",
+        e = window.top.location.href,
+        r = new URL(e);
+    if (null != r) {
+        let a = r.searchParams.get("utm_source"),
+            n = r.searchParams.get("utm_medium"),
+            o = r.searchParams.get("utm_campaign"),
+            m = r.searchParams.get("utm_term"),
+            c = r.searchParams.get("utm_content"); - 1 !== e.indexOf("?") && (t = `&sck=${a}|${n}|${o}|${m}|${c}`), console.log(t)
+    }
+    return t
+}! function() {
+    var t = new URLSearchParams(window.location.search);
+    t.toString() && document.querySelectorAll("a").forEach(function(e) {
+        for (let r = 0; r < prefix.length; r++) - 1 !== e.href.indexOf(prefix[r]) && (-1 === e.href.indexOf("?") ? e.href += "?" + t.toString() + getParams() : e.href += "&" + t.toString() + getParams())
+    })
+}(); </script>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+							</div>
+		
+		<style id="skip-link-styles">
+		.skip-link.screen-reader-text {
+			border: 0;
+			clip: rect(1px,1px,1px,1px);
+			clip-path: inset(50%);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute !important;
+			width: 1px;
+			word-wrap: normal !important;
+		}
+
+		.skip-link.screen-reader-text:focus {
+			background-color: #eee;
+			clip: auto !important;
+			clip-path: none;
+			color: #444;
+			display: block;
+			font-size: 1em;
+			height: auto;
+			left: 5px;
+			line-height: normal;
+			padding: 15px 23px 14px;
+			text-decoration: none;
+			top: 5px;
+			width: auto;
+			z-index: 100000;
+		}
+	</style>
+		<script type="rocketlazyloadscript">
+	( function() {
+		var skipLinkTarget = document.querySelector( 'main' ),
+			sibling,
+			skipLinkTargetID,
+			skipLink;
+
+		// Early exit if a skip-link target can't be located.
+		if ( ! skipLinkTarget ) {
+			return;
+		}
+
+		// Get the site wrapper.
+		// The skip-link will be injected in the beginning of it.
+		sibling = document.querySelector( '.wp-site-blocks' );
+
+		// Early exit if the root element was not found.
+		if ( ! sibling ) {
+			return;
+		}
+
+		// Get the skip-link target's ID, and generate one if it doesn't exist.
+		skipLinkTargetID = skipLinkTarget.id;
+		if ( ! skipLinkTargetID ) {
+			skipLinkTargetID = 'wp--skip-link--target';
+			skipLinkTarget.id = skipLinkTargetID;
+		}
+
+		// Create the skip link.
+		skipLink = document.createElement( 'a' );
+		skipLink.classList.add( 'skip-link', 'screen-reader-text' );
+		skipLink.href = '#' + skipLinkTargetID;
+		skipLink.innerHTML = 'Saltar para o conteúdo';
+
+		// Inject the skip link.
+		sibling.parentElement.insertBefore( skipLink, sibling );
+	}() );
+	</script>
+	<link rel='stylesheet' id='e-animations-css'  href='https://negocioslucrativos.website/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.6.8' media='all' />
+<script id='eio-lazy-load-js-before'>
+var eio_lazy_vars = {"exactdn_domain":"","skip_autoscale":0,"threshold":0};
+</script>
+<script src='https://negocioslucrativos.website/wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js?ver=680' id='eio-lazy-load-js' defer></script>
+<script type="rocketlazyloadscript" id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id='rocket-preload-links-js-extra'>
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/negocioslucrativos.website","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.7.3' id='elementor-pro-webpack-runtime-js' defer></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.6.8' id='elementor-webpack-runtime-js' defer></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js' defer></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js' defer></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.6.8' id='elementor-frontend-modules-js' defer></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js' defer></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-includes/js/dist/hooks.min.js?ver=c6d64f2cb8f5c6bb49caca37f8828ce3' id='wp-hooks-js'></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-includes/js/dist/i18n.min.js?ver=ebee46757c6a411e38fd079a7ac71d94' id='wp-i18n-js'></script>
+<script type="rocketlazyloadscript" id='wp-i18n-js-after'>
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type="rocketlazyloadscript" id='elementor-pro-frontend-js-before'>
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/negocioslucrativos.website\/wp-admin\/admin-ajax.php","nonce":"b4443c5269","urls":{"assets":"https:\/\/negocioslucrativos.website\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/negocioslucrativos.website\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"pt_PT","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/negocioslucrativos.website\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.7.3' id='elementor-pro-frontend-js' defer></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' id='elementor-waypoints-js' defer></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1' id='jquery-ui-core-js' defer></script>
+<script type="rocketlazyloadscript" id='elementor-frontend-js-before'>
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Partilhar no Facebook","shareOnTwitter":"Partilhar no Twitter","pinIt":"Fix\u00e1-lo","download":"Download","downloadImage":"Descarregar Imagem","fullscreen":"\u00c9cr\u00e3 Inteiro","zoom":"Zoom","share":"Partilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Seguinte","close":"Fechar"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Extra","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Extra","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Port\u00e1til","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.6.8","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"a11y_improvements":true,"e_import_export":true,"additional_custom_breakpoints":true,"e_hidden_wordpress_widgets":true,"theme_builder_v2":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true,"page-transitions":true,"notes":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/negocioslucrativos.website\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":46,"title":"Designer%20de%20Unhas%20Expert%20%E2%80%93%20Negocios%20Lucrativos","excerpt":"","featuredImage":false}};
+</script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.6.8' id='elementor-frontend-js' defer></script>
+<script type="rocketlazyloadscript" src='https://negocioslucrativos.website/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.7.3' id='pro-elements-handlers-js' defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://negocioslucrativos.website/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>	<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
